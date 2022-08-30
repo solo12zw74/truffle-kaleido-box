@@ -50,7 +50,9 @@ migrate
 5. Copy the connection info from this panel into the respective variables inside of `truffle-config.js`. If you are using Quorum in this environment, ensure to uncomment the `type: "quorum"` property on your network object.
 
 ```
+// The application credential should be provided as plaintext in HTTP Basic Auth format, for example: "USERNAME:PASSWORD"
 const appCred = 'yourappcred';
+// The connection URL should be a JSON/RPC connection URL without the protocol, for example: ENVIRONMENT_ID-NODE_ID-rpc.us0-aws.kaleido.io/
 const connectionURL = 'nodeConnectionURL';
 ```
 ```
