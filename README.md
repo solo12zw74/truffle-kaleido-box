@@ -6,28 +6,50 @@ This box gives you a boilerplate to get up and running quickly with Truffle on a
 
 ## Installation
 
-First ensure you are in a new and empty directory.
+First ensure you are in a new and empty directory. Choose one of the following options to download and install the Kaleido Truffle box
 
-1. Run the `unbox` command with `npx` and skip to step 3. This will install all necessary dependencies.
+1. In your preferred directory run the `unbox` command with `npx`. This will install all necessary dependencies.
 
 ```
 npx truffle unbox kaleido-io/truffle-kaleido-box
 ```
 
-2. Alternatively, you can install Truffle globally and then run the `unbox` command.
+2. Alternatively, install Truffle globally and then run the `unbox` command in your preferred directory.
 
 ```
 npm install -g truffle
 truffle unbox kaleido-io/truffle-kaleido-box
 ```
 
-3. Run the development console. This will instantiate a local chain for you to test that Truffle is working properly.
+## Connect to Kaleido
+
+1. In the Kaleido console, navigate to your environment, click on "Security" in the left hand navigation menu, then click on "App Creds"
+
+2. Click "New App Cred" and give it a name. Do not close this window until we have completed the steps below
+
+3. Navigate to where you downloaded the Kaleido Truffle Box in the section above.  Open up the truffle-config.js file in your preferred IDE
+
+4. Back in the Kaleido console, copy the JSON/RPC HTTP endpoint that's generated in the right hand menu.
+
+5. Paste this full URL into Line 9 where you see 'nodeConnectionURL'. Make sure to keep the URL that you insert inside quotation marks
+
+6. If you are using Quorum in this environment, ensure to uncomment the `type: "quorum"` property on your network object.
+
+7. Migrate your contracts to your Kaleido chain!
+
+```
+truffle migrate
+```
+
+## Running Truffle
+
+1. Run the development console. This will instantiate a local chain for you to test that Truffle is working properly.
 
 ```
 truffle develop
 ```
 
-4. Ensure that you're able to both compile, test, and finally migrate your contracts to your local chain.
+2. Ensure that you're able to both compile, test, and finally migrate your contracts to your local chain.
 
 ```
 compile
@@ -36,31 +58,3 @@ migrate
 ```
 
 5. If everything looks good, you can exit the Truffle console with `.exit`.
-
-## Connect to Kaleido
-
-1. In Kaleido, select the node you want to connect to, then choose `+ Connect Node`.
-
-2. Select `Native JSON/RPC`
-
-3. Choose an application credential to use for this connection.
-
-4. Choose the `Truffle Suite` connection type.
-
-5. Copy the connection info from this panel into the respective variables inside of `truffle-config.js`. If you are using Quorum in this environment, ensure to uncomment the `type: "quorum"` property on your network object.
-
-```
-// The application credential should be provided as plaintext in HTTP Basic Auth format, for example: "USERNAME:PASSWORD"
-const appCred = 'yourappcred';
-// The connection URL should be a JSON/RPC connection URL without the protocol, for example: ENVIRONMENT_ID-NODE_ID-rpc.us0-aws.kaleido.io/
-const connectionURL = 'nodeConnectionURL';
-```
-```
-type: 'quorum' // Use this property for Quorum environments
-```
-
-6. Migrate your contracts to your Kaleido chain!
-
-```
-truffle migrate
-```
