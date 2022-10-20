@@ -6,7 +6,6 @@ module.exports = {
   networks: {
     development: {
       provider: () => {
-        // const appCred = 'yourappcred'; // Formatted as plaintext "USERNAME:PASSWORD" from application credential widget
         const connectionURL = 'nodeConnectionURL'; // JSON/RPC connection URL without protocol (no "https://")
         return new HTTPProviderRateLimitRetry({connectionURL}, 100000);
       },
