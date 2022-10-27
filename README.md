@@ -23,23 +23,17 @@ truffle unbox kaleido-io/truffle-kaleido-box
 
 ## Connect to Kaleido
 
-1. In the Kaleido console, navigate to your environment, click on "Security" in the left hand navigation menu, then click on "App Creds"
+1. In the Kaleido console, navigate to your environment, click on **Security** in the left hand navigation menu, then click on **App Creds**
 
-2. Click "New App Cred" and give it a name. Do not close this window until we have completed the steps below
+2. Click **New App Cred** and give it a name and click **Create**. Do not close this window until we have completed the steps below
 
 3. Navigate to where you downloaded the Kaleido Truffle Box in the section above.  Open up the truffle-config.js file in your preferred IDE
 
-4. Back in the Kaleido console, copy the JSON/RPC HTTP endpoint that's generated in the right hand menu.
+4. Back in the Kaleido console, copy the JSON/RPC HTTP endpoint with valid App Creds that's generated in the right hand menu.
 
 5. Paste this full URL into Line 9 where you see 'nodeConnectionURL'. Make sure to keep the URL that you insert inside quotation marks
 
 6. If you are using Quorum in this environment, ensure to uncomment the `type: "quorum"` property on your network object.
-
-7. Migrate your contracts to your Kaleido chain!
-
-```
-truffle migrate
-```
 
 ## Running Truffle
 
@@ -57,4 +51,4 @@ test
 migrate
 ```
 
-5. If everything looks good, you can exit the Truffle console with `.exit`.
+3. If everything looks good, you can exit the Truffle console with `.exit`.
