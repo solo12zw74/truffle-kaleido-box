@@ -6,8 +6,8 @@ module.exports = {
   networks: {
     development: {
       provider: () => {
-        const connectionURL = 'nodeConnectionURL'; // JSON/RPC connection URL without protocol (no "https://")
-        return new HTTPProviderRateLimitRetry({connectionURL}, 100000);
+        const connectionURL = 'nodeConnectionURL'; // JSON/RPC connection URL
+        return new HTTPProviderRateLimitRetry(connectionURL, 100000);
       },
       network_id: "*", // Match any network id
       gasPrice: 0,
